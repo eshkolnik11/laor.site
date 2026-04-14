@@ -46,11 +46,11 @@
     .btn-ghost { border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85); padding: 13px 30px; border-radius: 100px; font-size: 15px; text-decoration: none; transition: border-color 0.2s, transform 0.2s; font-family: 'Heebo', sans-serif; }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-2px); }
 
-    .hero-card { border-radius: 20px; overflow: hidden; animation: fadeUp 0.5s 0.2s ease both; position: relative; height: 480px; }
-    .hero-card img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-    .hero-card-overlay { position: absolute; bottom: 0; right: 0; left: 0; background: linear-gradient(transparent, rgba(26,37,64,0.75)); padding: 2rem 1.5rem 1.5rem; }
-    .hero-card-overlay-name { font-size: 18px; font-weight: 700; color: #fff; }
-    .hero-card-overlay-sub { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 3px; }
+    .hero-card { border-radius: 20px; overflow: hidden; animation: fadeUp 0.5s 0.2s ease both; position: relative; height: 520px; box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; }
+    .hero-card-overlay { position: absolute; bottom: 0; right: 0; left: 0; background: linear-gradient(transparent, rgba(26,37,64,0.82)); padding: 3rem 1.5rem 1.5rem; }
+    .hero-card-overlay-name { font-size: 20px; font-weight: 700; color: #fff; }
+    .hero-card-overlay-sub { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 4px; }
     .hero-card-title { font-size: 13px; font-weight: 500; color: var(--orange); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem; }
     .hero-card-items { display: flex; flex-direction: column; gap: 1rem; }
     .hero-card-item { display: flex; align-items: center; gap: 14px; padding: 1rem; background: rgba(255,255,255,0.04); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); }
@@ -137,8 +137,8 @@
 
 
     @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-card { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-card { display: block; height: 300px; }
       .services-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -151,11 +151,11 @@
     .partners-track-wrap::before, .partners-track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; }
     .partners-track-wrap::before { right: 0; background: linear-gradient(to left, var(--white), transparent); }
     .partners-track-wrap::after { left: 0; background: linear-gradient(to right, var(--white), transparent); }
-    .partners-track { display: flex; gap: 3rem; align-items: center; animation: scroll-partners 35s linear infinite; width: max-content; }
+    .partners-track { display: flex; align-items: center; animation: scroll-partners 28s linear infinite; width: max-content; }
     .partners-track:hover { animation-play-state: paused; }
     .partner-item { display: flex; align-items: center; flex-shrink: 0; }
-    .partner-name { font-size: 15px; font-weight: 600; color: var(--navy); white-space: nowrap; padding: 0 1.5rem; border-right: 2px solid var(--orange); }
-    @keyframes scroll-partners { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .partner-name { font-size: 15px; font-weight: 600; color: var(--navy); white-space: nowrap; padding: 0 2rem; border-right: 2px solid var(--orange); }
+    @keyframes scroll-partners { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   </style>
 </head>
 <body>
@@ -301,7 +301,7 @@
     <div class="about-grid">
       <div>
         <div class="about-image" style="padding:0;">
-          <img src="img3.jpg" alt="יובל לאור" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:20px;">
+          <img src="img3.jpg" alt="יובל לאור" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;border-radius:20px;">
           <div class="about-badge">יובל לאור</div>
           <div class="about-badge2">בן 30 · רחובות</div>
         </div>
@@ -315,7 +315,7 @@
           <div class="highlight"><div class="highlight-title">ניסיון שטח אמיתי</div><div class="highlight-sub">עוטף עזה, מפונים, קורונה</div></div>
           <div class="highlight"><div class="highlight-title">תואר ראשון בחינוך בלתי פורמלי</div><div class="highlight-sub">תעודת הוראה לתיכון · עבודה קהילתית</div></div>
           <div class="highlight"><div class="highlight-title">סטודנט לתואר שני</div><div class="highlight-sub">מנהל עסקים ויזמות חברתית</div></div>
-          <div class="highlight"><div class="highlight-title">ניהול תקציבי</div><div class="highlight-sub">עד 4 מיליון ₪ בשנה</div></div>
+          <div class="highlight"><div class="highlight-title">הוצאת פעילות לפועל</div><div class="highlight-sub">פעילויות חינוכיות מורכבות וניהול מערכות חינוך</div></div>
         </div>
       </div>
     </div>
