@@ -141,6 +141,19 @@
       .about-highlights { grid-template-columns: 1fr; }
       .nav-links li:not(:last-child) { display: none; }
     }
+    .partners-bg { background: var(--white); padding: 3rem 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .partners-title { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+    .partners-track-wrap { overflow: hidden; position: relative; }
+    .partners-track-wrap::before, .partners-track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; }
+    .partners-track-wrap::before { right: 0; background: linear-gradient(to left, var(--white), transparent); }
+    .partners-track-wrap::after { left: 0; background: linear-gradient(to right, var(--white), transparent); }
+    .partners-track { display: flex; gap: 3rem; align-items: center; animation: scroll-partners 35s linear infinite; width: max-content; }
+    .partners-track:hover { animation-play-state: paused; }
+    .partner-item { display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; }
+    .partner-logo { width: 68px; height: 68px; border-radius: 14px; background: var(--cream); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; color: var(--navy); transition: transform 0.2s, box-shadow 0.2s; }
+    .partner-item:hover .partner-logo { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(26,37,64,0.12); }
+    .partner-name { font-size: 12px; color: var(--muted); text-align: center; max-width: 85px; line-height: 1.4; }
+    @keyframes scroll-partners { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   </style>
 </head>
 <body>
@@ -251,6 +264,32 @@
     </div>
   </div>
 </section>
+
+<!-- PARTNERS -->
+<div class="partners-bg">
+  <p class="partners-title">ארגונים שעבדתי איתם</p>
+  <div class="partners-track-wrap">
+    <div class="partners-track" id="partners-track">
+      <div class="partner-item"><div class="partner-logo">נע"ל</div><div class="partner-name">הנוער העובד והלומד</div></div>
+      <div class="partner-item"><div class="partner-logo">בנ"מ</div><div class="partner-name">בני המושבים</div></div>
+      <div class="partner-item"><div class="partner-logo">אשכ</div><div class="partner-name">מועצה אזורית אשכול</div></div>
+      <div class="partner-item"><div class="partner-logo">מע</div><div class="partner-name">המעורר</div></div>
+      <div class="partner-item"><div class="partner-logo">אות</div><div class="partner-name">עמותת אותות</div></div>
+      <div class="partner-item"><div class="partner-logo">כיו</div><div class="partner-name">מרכז כיוונים באר שבע</div></div>
+      <div class="partner-item"><div class="partner-logo">עיר</div><div class="partner-name">עיריית באר שבע</div></div>
+      <div class="partner-item"><div class="partner-logo">מסע</div><div class="partner-name">מסע ישראלי</div></div>
+      <!-- duplicate for seamless loop -->
+      <div class="partner-item"><div class="partner-logo">נע"ל</div><div class="partner-name">הנוער העובד והלומד</div></div>
+      <div class="partner-item"><div class="partner-logo">בנ"מ</div><div class="partner-name">בני המושבים</div></div>
+      <div class="partner-item"><div class="partner-logo">אשכ</div><div class="partner-name">מועצה אזורית אשכול</div></div>
+      <div class="partner-item"><div class="partner-logo">מע</div><div class="partner-name">המעורר</div></div>
+      <div class="partner-item"><div class="partner-logo">אות</div><div class="partner-name">עמותת אותות</div></div>
+      <div class="partner-item"><div class="partner-logo">כיו</div><div class="partner-name">מרכז כיוונים באר שבע</div></div>
+      <div class="partner-item"><div class="partner-logo">עיר</div><div class="partner-name">עיריית באר שבע</div></div>
+      <div class="partner-item"><div class="partner-logo">מסע</div><div class="partner-name">מסע ישראלי</div></div>
+    </div>
+  </div>
+</div>
 
 <section class="section gallery-bg">
   <div class="section-inner">
