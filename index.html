@@ -119,7 +119,18 @@
     .footer-logo span { color: var(--orange); }
     footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .gallery-bg { background: var(--cream); padding: 4rem 2rem; }
+    .gallery-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 1rem; margin-top: 2.5rem; }
+    .gallery-item { border-radius: 16px; overflow: hidden; position: relative; }
+    .gallery-large { grid-row: span 2; }
+    .gallery-wide { grid-column: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-caption { position: absolute; bottom: 0; right: 0; left: 0; background: linear-gradient(transparent, rgba(26,37,64,0.85)); color: #fff; font-size: 13px; padding: 1.5rem 1rem 0.75rem; opacity: 0; transition: opacity 0.3s; }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; } .gallery-large, .gallery-wide { grid-row: span 1; grid-column: span 1; } .gallery-item { height: 220px; } .gallery-caption { opacity: 1; } }
+
+
 
     @media (max-width: 768px) {
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -241,12 +252,41 @@
   </div>
 </section>
 
+<section class="section gallery-bg">
+  <div class="section-inner">
+    <p class="section-eyebrow">מהשטח</p>
+    <h2 class="section-title">רגעים אמיתיים</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-large">
+        <img src="img1.jpg" alt="סדנה למועצת נוער">
+        <div class="gallery-caption">סדנה למועצת נוער באשדוד</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img2.jpg" alt="עם צוות שנת שירות">
+        <div class="gallery-caption">ליווי צוות שנת שירות</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img3.jpg" alt="פעילות בשטח">
+        <div class="gallery-caption">פעילות בשטח</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img4.jpg" alt="סדנה קבוצתית">
+        <div class="gallery-caption">סדנה קבוצתית</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img5.jpg" alt="פעילות חוץ עם נוער">
+        <div class="gallery-caption">פעילות חוץ עם נוער</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section about-bg" id="about">
   <div class="section-inner">
     <div class="about-grid">
       <div>
-        <div class="about-image">
-          <div class="about-image-bg">י׳</div>
+        <div class="about-image" style="padding:0;">
+          <img src="img3.jpg" alt="יובל לאור" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:20px;">
           <div class="about-badge">יובל לאור</div>
           <div class="about-badge2">בן 30 · רחובות</div>
         </div>
