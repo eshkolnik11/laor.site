@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יובל לאור | ייעוץ והדרכה</title>
+  <meta name="description" content="יובל לאור – ייעוץ והדרכה חינוכית. סדנאות מנהיגות, חינוך פיננסי וליווי מועצות נוער.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --navy: #2d3f6b;
+      --orange: #e8622a;
+      --orange-light: #f5e8e0;
+      --cream: #f8f6f1;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: rgba(26,37,64,0.1);
+    }
+    body { font-family: 'Heebo', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+    nav { position: fixed; top: 0; right: 0; left: 0; z-index: 100; background: rgba(26,37,64,0.97); backdrop-filter: blur(12px); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-text { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+    .nav-logo-text span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 14px; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--orange) !important; color: #fff !important; padding: 8px 20px; border-radius: 100px; font-weight: 500; }
+
+    .hero { background: var(--navy); min-height: 100vh; display: flex; align-items: center; padding: 100px 2rem 4rem; position: relative; overflow: hidden; }
+    .hero-bg-text { position: absolute; top: 50%; left: -2rem; transform: translateY(-50%); font-size: clamp(180px, 25vw, 320px); font-weight: 900; color: rgba(255,255,255,0.025); line-height: 1; user-select: none; letter-spacing: -10px; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,98,42,0.15); border: 1px solid rgba(232,98,42,0.3); color: var(--orange); font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; margin-bottom: 1.5rem; letter-spacing: 0.5px; animation: fadeUp 0.5s ease both; }
+    .hero h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 900; line-height: 1.1; color: #fff; letter-spacing: -1.5px; margin-bottom: 1.25rem; animation: fadeUp 0.5s 0.1s ease both; }
+    .hero h1 em { font-style: normal; color: var(--orange); }
+    .hero-desc { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 2.5rem; max-width: 460px; animation: fadeUp 0.5s 0.2s ease both; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.5s 0.3s ease both; }
+    .btn-primary { background: var(--orange); color: #fff; padding: 13px 30px; border-radius: 100px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.2s, opacity 0.2s; font-family: 'Heebo', sans-serif; }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-ghost { border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85); padding: 13px 30px; border-radius: 100px; font-size: 15px; text-decoration: none; transition: border-color 0.2s, transform 0.2s; font-family: 'Heebo', sans-serif; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-2px); }
+
+    .hero-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 2.5rem; animation: fadeUp 0.5s 0.2s ease both; }
+    .hero-card-title { font-size: 13px; font-weight: 500; color: var(--orange); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-card-items { display: flex; flex-direction: column; gap: 1rem; }
+    .hero-card-item { display: flex; align-items: center; gap: 14px; padding: 1rem; background: rgba(255,255,255,0.04); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); }
+    .hero-card-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(232,98,42,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hero-card-icon svg { width: 20px; height: 20px; stroke: var(--orange); }
+    .hero-card-item-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+    .hero-card-item-sub { font-size: 13px; color: rgba(255,255,255,0.45); }
+
+    .stats { background: var(--orange); padding: 2rem; }
+    .stats-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-around; gap: 2rem; flex-wrap: wrap; }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 38px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -1px; }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 4px; }
+
+    .section { padding: 6rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; letter-spacing: -1px; color: var(--navy); margin-bottom: 1rem; }
+    .section-sub { font-size: 17px; color: var(--muted); line-height: 1.75; max-width: 520px; }
+
+    .services-bg { background: var(--white); }
+    .services-header { margin-bottom: 3.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; }
+    .service-card { background: var(--cream); border-radius: 16px; padding: 2rem; border: 1.5px solid transparent; transition: border-color 0.2s, transform 0.2s; }
+    .service-card:hover { border-color: var(--orange); transform: translateY(-4px); }
+    .service-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--orange); margin-bottom: 1.25rem; }
+    .service-icon { width: 48px; height: 48px; background: var(--orange-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .service-icon svg { width: 22px; height: 22px; stroke: var(--orange); }
+    .service-card h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; letter-spacing: -0.3px; }
+    .service-card p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+    .service-tags { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: rgba(232,98,42,0.1); color: var(--orange); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 100px; }
+
+    .about-bg { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; }
+    .about-image { background: var(--navy); border-radius: 20px; height: 480px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+    .about-image-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 200px; font-weight: 900; color: rgba(255,255,255,0.04); }
+    .about-badge { position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--orange); color: #fff; padding: 10px 18px; border-radius: 100px; font-size: 13px; font-weight: 600; }
+    .about-badge2 { position: absolute; top: 1.5rem; left: 1.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); padding: 8px 16px; border-radius: 100px; font-size: 12px; }
+    .about-text h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; line-height: 1.2; letter-spacing: -1px; color: var(--navy); margin-bottom: 1.25rem; }
+    .about-text p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .about-highlights { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .highlight { background: var(--white); border-radius: 12px; padding: 1rem 1.25rem; border-right: 3px solid var(--orange); }
+    .highlight-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .highlight-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    .contact-bg { background: var(--navy); }
+    .contact-bg .section-title { color: #fff; }
+    .contact-bg .section-sub { color: rgba(255,255,255,0.5); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem; }
+    .contact-item { display: flex; align-items: center; gap: 14px; }
+    .contact-item-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(232,98,42,0.15); border: 1px solid rgba(232,98,42,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-item-icon svg { width: 18px; height: 18px; stroke: var(--orange); }
+    .contact-item a, .contact-item span { font-size: 15px; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .contact-item a:hover { color: #fff; }
+    .contact-form { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; }
+    .form-row { margin-bottom: 1.1rem; }
+    .form-row label { display: block; font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 7px; }
+    .form-row input, .form-row textarea, .form-row select { width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 12px 16px; font-size: 15px; font-family: 'Heebo', sans-serif; color: #fff; outline: none; transition: border-color 0.2s; direction: rtl; }
+    .form-row input::placeholder, .form-row textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color: var(--orange); }
+    .form-row textarea { min-height: 100px; resize: vertical; }
+    .form-row select option { background: #1a2540; }
+    .form-submit { width: 100%; background: var(--orange); color: #fff; border: none; padding: 14px; border-radius: 100px; font-size: 16px; font-weight: 700; font-family: 'Heebo', sans-serif; cursor: pointer; margin-top: 0.5rem; transition: opacity 0.2s, transform 0.2s; }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    footer { background: #1e2d4f; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.5); }
+    .footer-logo span { color: var(--orange); }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-card { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-highlights { grid-template-columns: 1fr; }
+      .nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="18" r="18" fill="rgba(232,98,42,0.15)"/>
+      <circle cx="13" cy="14" r="4" fill="#e8622a"/>
+      <circle cx="23" cy="14" r="3" fill="rgba(232,98,42,0.5)"/>
+      <path d="M6 26c0-4 3.5-7 7-7s7 3 7 7" stroke="#e8622a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M23 17c2.5 0 5 2 5 5" stroke="rgba(232,98,42,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">יובל <span>לאור</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#contact" class="nav-cta">צור קשר</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-text">YL</div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">ייעוץ והדרכה חינוכית</div>
+      <h1>מנוע הקהילה<br>מתחיל<br><em>בנוער שלה</em></h1>
+      <p class="hero-desc">סדנאות ותכנים ייחודיים שהוכחו בשטח — מועצות נוער, תוכניות מנהיגות, חינוך פיננסי וליווי ארגוני למסגרות חינוך.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">בואו נדבר</a>
+        <a href="#services" class="btn-ghost">מה אני מציע</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">תחומי פעילות</div>
+      <div class="hero-card-items">
+        <div class="hero-card-item">
+          <div class="hero-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <div class="hero-card-item-title">מנהיגות ומועצות נוער</div>
+            <div class="hero-card-item-sub">סדנאות, מועצות נוער, פעילות חירום</div>
+          </div>
+        </div>
+        <div class="hero-card-item">
+          <div class="hero-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div>
+            <div class="hero-card-item-title">חינוך פיננסי לצעירים</div>
+            <div class="hero-card-item-sub">כלים כלכליים מעשיים לחיים</div>
+          </div>
+        </div>
+        <div class="hero-card-item">
+          <div class="hero-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <div class="hero-card-item-title">ייעוץ וליווי ארגוני</div>
+            <div class="hero-card-item-sub">פיתוח מסגרות ותנועות נוער</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">8+</div><div class="stat-label">שנות ניסיון</div></div>
+    <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">בני נוער בשנה</div></div>
+    <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">ערים וישובים</div></div>
+    <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">תחומי מומחיות</div></div>
+  </div>
+</div>
+
+<section class="section services-bg" id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <p class="section-eyebrow">שירותים</p>
+      <h2 class="section-title">מה אני מציע</h2>
+      <p class="section-sub">תכנים מותאמים אישית לכל קבוצה וצורך, עם דגש על חוויה משמעותית שמשאירה רושם לאורך זמן.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>מנהיגות ומועצות נוער</h3>
+        <p>סדנאות עומק וליווי מועצות נוער — מגיבוש צוות ועד קבלת החלטות בזמן אמת. כולל תכנים לפעילות קהילתית בחירום.</p>
+        <div class="service-tags"><span class="tag">מועצות נוער</span><span class="tag">פעילות חירום</span><span class="tag">גיבוש</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>חינוך פיננסי לצעירים</h3>
+        <p>תכנים מעשיים ומושכלים על ניהול כסף, חיסכון והשקעות — בשפה שמדברת לצעירים ומחברת בין תיאוריה לחיים האמיתיים.</p>
+        <div class="service-tags"><span class="tag">ניהול כסף</span><span class="tag">השקעות</span><span class="tag">עצמאות כלכלית</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>ייעוץ וליווי ארגוני</h3>
+        <p>ייעוץ למסגרות חינוך ותנועות נוער — בניית תוכניות עבודה, פיתוח צוותים, ניהול תקציב ופעילות בשגרה ובחירום.</p>
+        <div class="service-tags"><span class="tag">תנועות נוער</span><span class="tag">פיתוח ארגוני</span><span class="tag">ניהול צוות</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about-bg" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="about-image">
+          <div class="about-image-bg">י׳</div>
+          <div class="about-badge">יובל לאור</div>
+          <div class="about-badge2">בן 30 · רחובות</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-eyebrow">אודות</p>
+        <h2>ראיתי בעיניים שלי מה נוער יכול לעשות</h2>
+        <p>מגיל צעיר אני עובד עם בני נוער — ממדריך בתנועה ועד ניהול מערך פעילות חינוכית לאלפי חניכים בגוש דן. ניהלתי תקציבים של מיליוני שקלים, הובלתי פעילות חירום בימי קורונה ובמלחמת חרבות ברזל, וליוויתי קיבוצי עוטף בבארי, רעים וכיסופים.</p>
+        <p>סטודנט לתואר שני במנהל עסקים ויזמות חברתית, ומאמין שחינוך פיננסי לצעירים הוא לא פחות חשוב ממנהיגות.</p>
+        <div class="about-highlights">
+          <div class="highlight"><div class="highlight-title">ניסיון שטח אמיתי</div><div class="highlight-sub">עוטף עזה, מפונים, קורונה</div></div>
+          <div class="highlight"><div class="highlight-title">תואר ראשון בחינוך בלתי פורמלי</div><div class="highlight-sub">תעודת הוראה לתיכון · עבודה קהילתית</div></div>
+          <div class="highlight"><div class="highlight-title">סטודנט לתואר שני</div><div class="highlight-sub">מנהל עסקים ויזמות חברתית</div></div>
+          <div class="highlight"><div class="highlight-title">ניהול תקציבי</div><div class="highlight-sub">עד 4 מיליון ₪ בשנה</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-bg" id="contact">
+  <div class="section-inner">
+    <p class="section-eyebrow">צור קשר</p>
+    <h2 class="section-title">בואו נדבר</h2>
+    <p class="section-sub">מעוניינים בסדנה, ייעוץ או תוכנית? השאירו פרטים ואחזור אליכם תוך 24 שעות.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.94 6.94l1.51-1.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <a href="tel:0546606953">054-660-6953</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <a href="mailto:yuvalaor@gmail.com">yuvalaor@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+        <div class="form-row"><label>אימייל</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-row"><label>טלפון</label><input type="tel" placeholder="050-0000000"></div>
+        <div class="form-row">
+          <label>סוג הפעילות</label>
+          <select>
+            <option value="">בחרו סוג פעילות</option>
+            <option>מנהיגות ומועצות נוער</option>
+            <option>חינוך פיננסי</option>
+            <option>ייעוץ ארגוני</option>
+            <option>אחר</option>
+          </select>
+        </div>
+        <div class="form-row"><label>הודעה</label><textarea placeholder="ספרו לי על הקבוצה שלכם..."></textarea></div>
+        <button class="form-submit" type="button">שליחה</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">יובל <span>לאור</span> | ייעוץ והדרכה</div>
+  <p>© 2026 · <a href="mailto:yuvalaor@gmail.com" style="color:rgba(255,255,255,0.3);text-decoration:none;">yuvalaor@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
